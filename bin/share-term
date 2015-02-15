@@ -32,12 +32,39 @@ switch (process.argv[2]) {
     case "-h":
         console.log("Help comming soon...");
         break;
+    case "get":
+        Logger.log("Connecting to the server.", "info");
+        var term = new ShareTerm({ host: HOST });
+
+        // Get terminal
+        term.get({ id: process.argv[3] }, function (err) {
+            if (err) { return Logger.log(err, "error"); }
+            process.exit();
+        });
+
+        // Disconnect
+        term.socket.on("disconnect", function(){
+            Logger.log("Disconnected by the server.", "error");
+            process.exit(1);
+        });
+
+        term.socket.on("_termError", function (err) {
+            Logger.log(err.toString(), "error");
+            process.exit(1);
+        });
+
+        term.socket.on("_termClosed", function () {
+            process.exit();
+        })
+
+        setTimeout(function() { /* foo */ }, 10000);
+        break;
     default:
         Logger.log("Connecting to the server.", "info");
         var term = new ShareTerm({ host: HOST });
 
         // Connect
-        term.connect(function (err, sock) {
+        term.create(function (err, sock) {
             if (err) {
                 return Logger.log(err, "error");
             }
