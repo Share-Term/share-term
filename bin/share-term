@@ -1,9 +1,21 @@
 #!/usr/bin/env node
 
 // Dependencies
+var Logger = require("bug-killer")
+  , CliResize = require("cli-resize")
+  , ShareTerm = require("../lib")
+  , OArgv = require("oargv")
+  ;
+
+// Constants
+const HOST = "http://localhost:8080/";
+
 // Configurations
-// Logger.config.displayDate = false;
-// Logger.config.logLevel = 4;
+Logger.config.displayDate = false;
+Logger.config.logLevel = 4;
+
+process.stdin.setEncoding("utf8");
+process.stdin.setRawMode(true);
 
 // CLI options
 switch (process.argv[2]) {
@@ -15,5 +27,39 @@ switch (process.argv[2]) {
         + "\n┊   Welcome!   ┊ » %sconnect?id=%s"
         + "\n╰┄┄┄┄┄┄┄┄┄┄┄┄┄┄╯"
         , process.argv[3], process.argv[4]);
+        break;
+    case "--help":
+    case "-h":
+        console.log("Help comming soon...");
+        break;
+    default:
+        Logger.log("Connecting to the server.", "info");
+        var term = new ShareTerm({ host: HOST });
+
+        // Connect
+        term.connect(function (err, sock) {
+            if (err) {
+                return Logger.log(err, "error");
+            }
+
+            // Welcome message
+            term.term.write(" " + OArgv({
+                _: ["welcome", HOST, sock.id]
+            }, "share-term") + "\r");
+
+            term.term.on("close", function () {
+                process.exit();
+            });
+        });
+
+        // Disconnect
+        term.socket.on("disconnect", function(){
+            Logger.log("Disconnected by the server.", "error");
+            process.exit(1);
+        });
+
+        CliResize(function (err, newSize) {
+            term.term.resize(newSize.width, newSize.height);
+        });
         break;
 }
