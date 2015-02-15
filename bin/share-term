@@ -88,7 +88,7 @@ switch (process.argv[2]) {
         });
 
         CliResize(function (err, newSize) {
-            term.term.resize(newSize.width, newSize.height);
+            term.term.emit("resize", newSize);
         });
         break;
 }
