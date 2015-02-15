@@ -54,10 +54,9 @@ switch (process.argv[2]) {
         });
 
         term.socket.on("_termClosed", function () {
+            Logger.log("Have a nice day!", "info");
             process.exit();
         })
-
-        setTimeout(function() { /* foo */ }, 10000);
         break;
     default:
         Logger.log("Connecting to the server.", "info");
@@ -75,7 +74,10 @@ switch (process.argv[2]) {
             }, "share-term") + "\r");
 
             term.term.on("close", function () {
-                process.exit();
+                setTimeout(function() {
+                    Logger.log("Have a nice day!", "info");
+                    process.exit();
+                }, 100);
             });
         });
 
