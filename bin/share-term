@@ -1,0 +1,19 @@
+#!/usr/bin/env node
+
+// Dependencies
+// Configurations
+// Logger.config.displayDate = false;
+// Logger.config.logLevel = 4;
+
+// CLI options
+switch (process.argv[2]) {
+    case "welcome":
+        console.log(
+            "╭┄┄┄┄┄┄┄┄┄┄┄┄┄┄╮"
+        + "\n┊  Share Term  ┊ You are now connected to the remote server."
+        + "\n┊  ╌╌╌╌╌╌╌╌╌╌  ┊ Share this link with your friends to see your terminal."
+        + "\n┊   Welcome!   ┊ » %sconnect?id=%s"
+        + "\n╰┄┄┄┄┄┄┄┄┄┄┄┄┄┄╯"
+        , process.argv[3], process.argv[4]);
+        break;
+}
