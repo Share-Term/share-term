@@ -8,7 +8,7 @@ var Logger = require("bug-killer")
   ;
 
 // Constants
-const HOST = "http://localhost:8080/";
+const HOST = "http://terminal.bloggify.net/";
 
 // Configurations
 Logger.config.displayDate = false;
