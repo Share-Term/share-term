@@ -39,6 +39,7 @@ To join a terminal session, having the id `<id>` you have two ways:
     <kbd>🗼</kbd> button in the right bottom side.
  2. Having `share-term` installed on your computer (see [Installation](#Installation))
     you can join the session using:
+
     ```sh
     # Without remote control
     $ share-term get <id>
