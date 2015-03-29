@@ -3,60 +3,51 @@
 # `$ share-term`
 Share the terminal with your friends.
 
+It's possible to share it into another terminal or in a browser, both with request
+control feature.
+
+If you enjoy using *Share Term*, [supporting it](http://share-term.me/support)
+would be really appreciated. :smile: :heart:
+
 ## Installation
-Run the following commands to download and install the application:
 
 ```sh
 $ npm install -g share-term
 ```
 
+For the help content, run:
+
+```sh
+$ share-term -h
+```
+
+## Usage
+### :earth_africa: Sharing the terminal
+To share your terminal do:
+
+```sh
+$ share-term
+```
+
+You will get a session id which you will send to your friends.
+
+### :tokyo_tower: Accessing a session
+To join a terminal session, having the id `<id>` you have two ways:
+
+ 1. Open the [Share Term website](http://share-term.me/) and enter your id there.
+    Then click the <kbd>Access</kbd> button. To request remote control click the
+    <kbd>🗼</kbd> button in the right bottom side.
+ 2. Having `share-term` installed on your computer (see [Installation](#Installation))
+    you can join the session using:
+    ```sh
+    # Without remote control
+    $ share-term get <id>
+    # With remote control
+    $ share-term get <id> -c
+    ```
+
 ## Documentation
-If you want to use this library as module, there you go!
-
-### `ShareTerm(options)`
-Creates a new instance of `ShareTerm`.
-
-#### Params
-- **Object** `options`: The options object:
- - `host` (String): The remote server host.
-
-### `connected()`
-This is called internally after the client is connected.
-
-#### Return
-- **ShareTerm** The `ShareTerm` instance.
-
-### `connect(options, callback)`
-Connects the client to the remote server.
-
-#### Params
-- **Object** `options`: The options object.
-- **Function** `callback`: The callback function.
-
-#### Return
-- **ShareTerm** The `ShareTerm` instance.
-
-### `create(callback)`
-Creates a new terminal share session.
-
-#### Params
-- **Function** `callback`: The callback function.
-
-#### Return
-- **ShareTerm** The `ShareTerm` instance.
-
-### `get(options, callback)`
-Connects the client to an existing terminal share session.
-
-#### Params
-- **Object** `options`: An object containing the following fields:
- - `id` (String): The terminal share session id.
- - `stdout` (Stream): The output stream (default: `process.stdout`).
-
-- **Function** `callback`: The callback function.
-
-#### Return
-- **ShareTerm** The `ShareTerm` instance.
+If you want to use this library as module, check out the [DOCUMENTATION](/DOCUMENTATION.md) file.
 
 ## How to contribute
 1. File an issue in the repository, using the bug tracker, describing the
