@@ -13,14 +13,14 @@ actions:
 options:
   -v, --version            Displays version information.
   -h, --help               Displays this help.
-  --control                Used to request remote control when the client
+  -c, --control            Used to request remote control when the client
                            is connecting from a terminal.
 
 examples:
-  share-term             # Starts a shared terminal session
-  share-term get <id>    # Connects to the terminal session with id <id>
-  share-term get <id> -c # Connects and asks for remote control in the
-                         # terminal session with id <id>
+  share-term               # Starts a shared terminal session
+  share-term get <id>      # Connects to the terminal session with id <id>
+  share-term get <id> -c   # Connects and asks for remote control in the
+                           # terminal session with id <id>
 
 Documentation can be found at https://github.com/Share-Term/share-term-client
 Support Share Term now: http://share-term.me/support
