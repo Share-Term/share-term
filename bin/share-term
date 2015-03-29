@@ -5,11 +5,12 @@ var Logger = require("bug-killer")
   , CliResize = require("cli-resize")
   , ShareTerm = require("../lib")
   , OArgv = require("oargv")
+  , Open = require("open")
   ;
 
 // Constants
-// const HOST = "http://localhost:8080/";
-const HOST = "http://share-term.me/";
+const HOST = "http://localhost:8080/";
+//const HOST = "http://share-term.me/";
 
 // Configurations
 Logger.config.displayDate = false;
@@ -43,21 +44,36 @@ switch (process.argv[2]) {
             process.exit();
         });
 
+        term.socket.on("_connected", function(){
+            Logger.log("You're now connected. Listening for data.", "info");
+            if (process.argv.indexOf("--control") !== -1) {
+                Logger.log("Requesting remote control.", "info");
+                term.socket.emit("requestControl");
+            }
+        });
+
+        term.socket.on("remoteControlAccepted", function(){
+            Logger.log("Remote control accepted.", "info");
+        });
+
         // Disconnect
         term.socket.on("disconnect", function(){
             Logger.log("Disconnected by the server.", "error");
+            Open(HOST + "support");
             process.exit(1);
         });
 
         term.socket.on("_termError", function (err) {
             Logger.log(err.toString(), "error");
+            Open(HOST + "support");
             process.exit(1);
         });
 
-        term.socket.on("_termClosed", function () {
+        term.socket.on("termClosed", function () {
             Logger.log("Have a nice day!", "info");
+            Open(HOST + "support");
             process.exit();
-        })
+        });
         break;
     default:
         Logger.log("Connecting to the server.", "info");
@@ -77,6 +93,7 @@ switch (process.argv[2]) {
             term.term.on("close", function () {
                 setTimeout(function() {
                     Logger.log("Have a nice day!", "info");
+                    Open(HOST + "support");
                     process.exit();
                 }, 100);
             });
@@ -85,6 +102,7 @@ switch (process.argv[2]) {
         // Disconnect
         term.socket.on("disconnect", function(){
             Logger.log("Disconnected by the server.", "error");
+            Open(HOST + "support");
             process.exit(1);
         });
 
