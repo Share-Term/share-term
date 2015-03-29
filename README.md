@@ -1,4 +1,6 @@
-# share-term
+![](http://i.imgur.com/AI9aB44.png)
+
+# `$ share-term`
 Share the terminal with your friends.
 
 ## Installation
