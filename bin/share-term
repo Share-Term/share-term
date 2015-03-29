@@ -36,6 +36,10 @@ switch (process.argv[2]) {
     case "-h":
         console.log(Fs.readFileSync(__dirname + "/help", "utf-8"));
         break;
+    case "--version":
+    case "-v":
+        console.log(require("../package").version);
+        break;
     case "get":
         var CtrlC = require("ctrl-c");
         Logger.log("Connecting to the server.", "info");
@@ -49,7 +53,7 @@ switch (process.argv[2]) {
 
         term.socket.on("_connected", function(){
             Logger.log("You're now connected. Listening for data.", "info");
-            if (process.argv.indexOf("--control") !== -1) {
+            if (process.argv.indexOf("--control") !== -1 || process.argv.indexOf("-c") !== -1) {
                 Logger.log("Requesting remote control.", "info");
                 term.socket.emit("requestControl");
             }
