@@ -19,6 +19,7 @@ Logger.config.logLevel = 4;
 process.stdin.setEncoding("utf8");
 process.stdin.setRawMode(true);
 
+
 // CLI options
 switch (process.argv[2]) {
     case "welcome":
@@ -35,6 +36,7 @@ switch (process.argv[2]) {
         console.log("Help comming soon...");
         break;
     case "get":
+        var CtrlC = require("ctrl-c");
         Logger.log("Connecting to the server.", "info");
         var term = new ShareTerm({ host: HOST });
 
@@ -54,6 +56,7 @@ switch (process.argv[2]) {
 
         term.socket.on("remoteControlAccepted", function(){
             Logger.log("Remote control accepted.", "info");
+            CtrlC(true);
             process.stdin.on("data", function (chunk) {
                 term.socket.emit("clientData", chunk);
             });
