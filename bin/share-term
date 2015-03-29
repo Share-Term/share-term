@@ -10,8 +10,8 @@ var Logger = require("bug-killer")
   ;
 
 // Constants
-const HOST = "http://localhost:8080/";
-//const HOST = "http://share-term.me/";
+//const HOST = "http://localhost:8080/";
+const HOST = "http://share-term.me/";
 
 // Configurations
 Logger.config.displayDate = false;
