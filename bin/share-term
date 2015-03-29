@@ -6,6 +6,7 @@ var Logger = require("bug-killer")
   , ShareTerm = require("../lib")
   , OArgv = require("oargv")
   , Open = require("open")
+  , Fs = require("fs")
   ;
 
 // Constants
@@ -33,7 +34,7 @@ switch (process.argv[2]) {
         break;
     case "--help":
     case "-h":
-        console.log("Help comming soon...");
+        console.log(Fs.readFileSync(__dirname + "/help", "utf-8"));
         break;
     case "get":
         var CtrlC = require("ctrl-c");
