@@ -22,5 +22,5 @@ examples:
   share-term get <id> -c   # Connects and asks for remote control in the
                            # terminal session with id <id>
 
-Documentation can be found at https://github.com/Share-Term/share-term-client
+Documentation can be found at https://github.com/Share-Term/share-term
 Support Share Term now: http://share-term.me/support
