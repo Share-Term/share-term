@@ -7,32 +7,35 @@
     "share-term": "./bin/share-term"
   },
   "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "author": "Ionică Bizău <bizauionica@gmail.com>",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/IonicaBizau/share-term.git"
-  },
+  "license": "KINDLY",
   "keywords": [
     "share",
     "terminal",
     "client"
   ],
-  "bugs": {
-    "url": "https://github.com/IonicaBizau/share-term/issues"
-  },
-  "homepage": "https://github.com/IonicaBizau/share-term",
   "dependencies": {
-    "ctrl-c": "^1.1.0",
+    "bug-killer": "^4.0.0",
+    "cli-resize": "^1.0.0",
+    "ctrl-c": "^2.0.0",
+    "oargv": "^2.0.0",
     "open": "^0.0.5",
-    "bug-killer": "^1.0.0",
-    "pty.js": "^0.2.7",
-    "socket.io-client": "^1.3.5",
-    "ul": "^2.1.0",
-    "oargv": "^1.2.0",
-    "cli-resize": "^1.0.0"
+    "pty.js": "^0.3.0",
+    "socket.io-client": "^1.3.7",
+    "ul": "^5.0.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Share-Term/share-term.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Share-Term/share-term/issues"
+  },
+  "homepage": "https://github.com/Share-Term/share-term#readme",
+  "blah": {
+    "h_img": "http://i.imgur.com/AI9aB44.png"
   }
 }
