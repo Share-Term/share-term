@@ -59,6 +59,8 @@ Contributions are more than welcome!
 
 Thanks! :sweat_smile:
 
-[1]: https://github.com/IonicaBizau/share-term/issues
+
+
+[1]: https://github.com/Share-Term/share-term/issues
 
 [2]: https://github.com/IonicaBizau/code-style
