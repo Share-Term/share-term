@@ -1,6 +1,6 @@
 {
   "name": "share-term",
-  "version": "2.0.2",
+  "version": "2.1.0",
   "description": "Share the terminal with your friends.",
   "main": "lib/index.js",
   "bin": {
@@ -18,9 +18,9 @@
     "bug-killer": "^4.0.0",
     "cli-resize": "^1.0.0",
     "ctrl-c": "^2.0.0",
+    "node-pty": "^0.9.0",
     "oargv": "^2.0.0",
     "open": "^0.0.5",
-    "pty.js": "^0.3.0",
     "socket.io-client": "^1.3.7",
     "ul": "^5.0.0"
   },
