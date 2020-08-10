@@ -1,6 +1,6 @@
 {
   "name": "share-term",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Share the terminal with your friends.",
   "main": "lib/index.js",
   "bin": {
