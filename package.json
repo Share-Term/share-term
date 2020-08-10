@@ -1,14 +1,14 @@
 {
   "name": "share-term",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "Share the terminal with your friends.",
   "main": "lib/index.js",
   "bin": {
     "share-term": "./bin/share-term"
   },
   "devDependencies": {},
-  "author": "Ionică Bizău <bizauionica@gmail.com>",
-  "license": "KINDLY",
+  "author": "Ionică Bizău <bizauionica@gmail.com> (https://ionicabizau.net)",
+  "license": "MIT",
   "keywords": [
     "share",
     "terminal",
@@ -37,5 +37,20 @@
   "homepage": "https://github.com/Share-Term/share-term#readme",
   "blah": {
     "h_img": "http://i.imgur.com/AI9aB44.png"
-  }
+  },
+  "files": [
+    "bin/",
+    "app/",
+    "lib/",
+    "dist/",
+    "src/",
+    "scripts/",
+    "resources/",
+    "menu/",
+    "cli.js",
+    "index.js",
+    "bloggify.js",
+    "bloggify.json",
+    "bloggify/"
+  ]
 }
